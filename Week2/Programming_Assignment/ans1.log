@@ -1,0 +1,6 @@
+Q1.
+original num of custers = 500
+final clusters = [332 462 384 414]
+max_space = 106
+-------------------------
+It is UnionFind destructor.
