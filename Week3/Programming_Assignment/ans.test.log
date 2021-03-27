@@ -1,0 +1,14 @@
+Q1/Q2.
+total_vertexes = 6
+> Initialization...
+> Huffman Coding...
+> Huffman Coding Result : 
+0 : 100, length = 3
+1 : 1010, length = 4
+2 : 01, length = 2
+3 : 11, length = 2
+4 : 1011, length = 4
+5 : 00, length = 2
+> Calculate Max/Min Length : 
+max_length = 4
+min_length = 2
