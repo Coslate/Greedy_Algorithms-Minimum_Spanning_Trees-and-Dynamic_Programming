@@ -2,14 +2,13 @@
 #include <solution.h>
 
 
-void initializationAll(MinHeap<LinkedListNode> &min_heap, std::unordered_map<std::string, LinkedListNode*> &map_st2lln, std::unordered_map<LinkedListNode*, std::string> &huffman_code, const std::vector<int> &input_weight_list, const int total_vertexes){
+void initializationAll(MinHeap<LinkedListNode> &min_heap, std::unordered_map<std::string, LinkedListNode*> &map_st2lln, const std::vector<int> &input_weight_list, const int total_vertexes){
     for(int i=0;i<total_vertexes;++i){
         std::string symbol = std::to_string(i);
         if(map_st2lln.find(symbol) == map_st2lln.end()){//not found
             LinkedListNode* new_node = new LinkedListNode(input_weight_list[i], symbol);
             map_st2lln[symbol] = new_node;
             min_heap.Insert(*new_node);
-            huffman_code[new_node] = "";
         }
     }
 }

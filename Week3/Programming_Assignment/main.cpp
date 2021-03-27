@@ -13,9 +13,6 @@ std::vector<int> input_weight_list;
 
 int total_vertexes = 0;
 
-//Huffman coding result
-std::unordered_map<LinkedListNode*, std::string> huffman_code;
-
 std::unordered_map<std::string, LinkedListNode*> map_st2lln;
 
 MinHeap<LinkedListNode> min_heap;
@@ -60,7 +57,7 @@ int main(int argc, char*argv[]){
     */
 
     std::cout<<"> Initialization..."<<std::endl;
-    initializationAll(min_heap, map_st2lln, huffman_code, input_weight_list, total_vertexes);
+    initializationAll(min_heap, map_st2lln, input_weight_list, total_vertexes);
     std::cout<<"> Huffman Coding..."<<std::endl;
     huffmanCoding(min_heap, total_vertexes, map_st2lln);
     std::cout<<"> Huffman Coding Result : "<<std::endl;
