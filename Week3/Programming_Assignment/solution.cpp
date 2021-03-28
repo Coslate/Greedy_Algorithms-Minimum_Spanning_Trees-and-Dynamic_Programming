@@ -94,3 +94,31 @@ int calMinLengthHuffmanCode(const int total_vertexes, std::unordered_map<std::st
 
     return min_length;
 }
+
+void weightedIndepSetDP(const std::vector<int> &input_weight_list, const int total_vertexes, std::vector<int> &ans_max_weight){
+    ans_max_weight.push_back(0);
+    ans_max_weight.push_back(input_weight_list[0]);
+    for(int i=2;i<total_vertexes+1;++i){
+        int vn_weight = ans_max_weight[i-2] + input_weight_list[i-1];
+        if(ans_max_weight[i-1] >= vn_weight){
+            ans_max_weight.push_back(ans_max_weight[i-1]);
+        }else{
+            ans_max_weight.push_back(vn_weight);
+        }
+    }
+}
+
+void weightedIndepSetReConstruct(const std::vector<int> &input_weight_list, const int total_vertexes, const std::vector<int> &ans_max_weight, std::unordered_set<int> &max_set){
+    int i=total_vertexes;
+    while(i >= 1){
+        if(i == 1){
+            max_set.insert(0);
+            break;
+        }else if(ans_max_weight[i-1] >= ans_max_weight[i-2] + input_weight_list[i-1]){
+            i -= 1;
+        }else{
+            max_set.insert(i-1);
+            i -= 2;
+        }
+    }
+}

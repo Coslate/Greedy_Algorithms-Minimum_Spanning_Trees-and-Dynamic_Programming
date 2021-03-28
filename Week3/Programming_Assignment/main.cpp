@@ -17,7 +17,11 @@ std::unordered_map<std::string, LinkedListNode*> map_st2lln;
 
 MinHeap<LinkedListNode> min_heap;
 
-void readFile1(std::string filename){
+std::vector<int> ans_max_weight;
+
+std::unordered_set<int> max_set;
+
+void readFile(std::string filename, std::vector<int> &input_weight_list, int &total_vertexes){
     std::string line;
     std::ifstream myfile (filename);
     if (myfile.is_open()){
@@ -46,8 +50,8 @@ int main(int argc, char*argv[]){
     }
     
 //Question 1. & Question 2.
-    std::cout<<"Q1/Q2."<<std::endl;
-    readFile1(argv[1]);
+    std::cout<<"----------------Q1/Q2.-----------------"<<std::endl;
+    readFile(argv[1], input_weight_list, total_vertexes);
     std::cout<<"total_vertexes = "<<total_vertexes<<std::endl;
     //std::cout<<"input_weight_list.size() = "<<input_weight_list.size()<<std::endl;
     /*
@@ -80,7 +84,34 @@ int main(int argc, char*argv[]){
             the_node = nullptr;
         }
     }
+    input_weight_list.clear();
+
+//Question 3.
+    std::cout<<"----------------Q3.-----------------"<<std::endl;
+    readFile(argv[2], input_weight_list, total_vertexes);
+    std::cout<<"total_vertexes = "<<total_vertexes<<std::endl;
+    /*
+    for(const auto &weight : input_weight_list){
+        std::cout<<weight<<std::endl;
+    }
+    */
+
+    std::cout<<"> Calculate max WIS using DP..."<<std::endl;
+    weightedIndepSetDP(input_weight_list, total_vertexes, ans_max_weight);
+
+    std::cout<<"> Reconstruct the max WIS..."<<std::endl;
+    weightedIndepSetReConstruct(input_weight_list, total_vertexes, ans_max_weight, max_set);
     
+    std::cout<<"> Whether 1(1st vertiex), 2(2nd vertex), 3, 4, 17, 117, 517, and 997 is in WIS? (1 is within, 0 is without for each)..."<<std::endl;
+    std::vector<int> question_vec{0, 1, 2, 3, 16, 116, 516, 996};
+    for(const auto &elem : question_vec){
+        if(max_set.find(elem) != max_set.end()){//found one
+            std::cout<<"1";
+        }else{
+            std::cout<<"0";
+        }
+    }
+    std::cout<<std::endl;
 
     return EXIT_SUCCESS;
 }

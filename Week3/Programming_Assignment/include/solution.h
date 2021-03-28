@@ -19,4 +19,8 @@ int calMaxLengthHuffmanCode(const int total_vertexes, std::unordered_map<std::st
 
 int calMinLengthHuffmanCode(const int total_vertexes, std::unordered_map<std::string, LinkedListNode*> &map_st2lln);
 
+void weightedIndepSetDP(const std::vector<int> &input_weight_list, const int total_vertexes, std::vector<int> &ans_max_weight);
+
+void weightedIndepSetReConstruct(const std::vector<int> &input_weight_list, const int total_vertexes, const std::vector<int> &ans_max_weight, std::unordered_set<int> &max_set);
+
 #endif
