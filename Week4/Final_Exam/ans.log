@@ -1,0 +1,13 @@
+----------------Q1.----------------
+total_items = 7
+1 0.2
+2 0.05
+3 0.17
+4 0.1
+5 0.2
+6 0.03
+7 0.25
+> Initialization...
+> Dynamic Programming...
+> Print the result...
+ans[6][0] = 2.23
