@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <unordered_set>
 #include <solution.h>
 
 //All of the weight of the vertexes.
