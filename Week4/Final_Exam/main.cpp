@@ -5,7 +5,6 @@
 #include <string>
 #include <vector>
 #include <unordered_set>
-#include <unordered_set>
 #include <solution.h>
 
 //All of the key values & weight of the nodes.
@@ -62,7 +61,7 @@ int main(int argc, char*argv[]){
     std::cout<<"> Dynamic Programming..."<<std::endl;
     optimalBSTSolDP(ans, total_items, input_weight_list);
 
-    std::cout<<"> Print the result..."<<std::endl;
+    std::cout<<"> Print the Result..."<<std::endl;
     std::cout<<"ans["<<total_items-1<<"]["<<0<<"] = "<<ans[total_items-1][0]<<std::endl;
 
     //deallocate
